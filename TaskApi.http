@@ -1,0 +1,20 @@
+@baseUrl = http://localhost:5080
+@taskId = replace-with-id-from-create-response
+
+### Create
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+  "title": "Buy milk",
+  "priority": "High"
+}
+
+### List
+GET {{baseUrl}}/tasks
+
+### Complete (second call returns 409)
+PUT {{baseUrl}}/tasks/{{taskId}}/complete
+
+### Hard delete
+DELETE {{baseUrl}}/tasks/{{taskId}}
